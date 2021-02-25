@@ -34,12 +34,12 @@ const SEO = ({ title, description, image, isBlogPost, datePublished }) => {
     url: `${siteUrl}${pathname}`,
   }
 
+  const url = pathname.replace(`/${locale}`, "") || "/"
   const associatedUrls = languageMapping.find(item => {
     let hasUrl = false
 
     Object.entries(item).forEach(([key, value]) => {
-      if (value.link.split("/").pop() === pathname.split("/").pop())
-        return (hasUrl = true)
+      if (value.link === url) return (hasUrl = true)
     })
 
     return hasUrl
@@ -56,14 +56,14 @@ const SEO = ({ title, description, image, isBlogPost, datePublished }) => {
         {associatedUrls &&
           Object.keys(associatedUrls).map(lang => {
             if (lang === locale) return null
-            const url = locales[lang].default
+            const href = locales[lang].default
               ? `${siteUrl}${associatedUrls[lang].link}`
               : `${siteUrl}/${lang}${associatedUrls[lang].link}`
             return (
               <link
                 rel="alternate"
                 hreflang={locales[lang].locale}
-                href={url}
+                href={href}
                 key={lang}
               />
             )
