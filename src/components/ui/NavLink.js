@@ -1,7 +1,6 @@
 import React from "react"
-import { Link as GatsbyLink } from "gatsby"
-import { Link } from "@chakra-ui/react"
 import { MotionText } from "../../theme/utils"
+import LocalizedLink from "../ui/LocalizedLink"
 
 const NavLink = props => {
   const { children, onClick, isLast, to = "/", ...rest } = props
@@ -18,16 +17,14 @@ const NavLink = props => {
       whileTap={{ scale: 0.95 }}
       {...rest}
     >
-      <Link
+      <LocalizedLink
         to={to}
-        title={children}
-        as={GatsbyLink}
         variant="nav-link"
         getProps={isPartiallyActive}
         onClick={onClick}
       >
         {children}
-      </Link>
+      </LocalizedLink>
     </MotionText>
   )
 }

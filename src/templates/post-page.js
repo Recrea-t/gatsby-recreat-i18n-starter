@@ -1,7 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
 import PropTypes from "prop-types"
-
 import { Container } from "@chakra-ui/react"
 
 import ReactMarkdown from "react-markdown"
@@ -9,12 +8,18 @@ import ChakraUIRenderer from "chakra-ui-markdown-renderer"
 
 import SEO from "../components/SEO/seo"
 
-const GeneralPage = ({ data }) => {
-  const { frontmatter, rawMarkdownBody } = data.markdownRemark
+const PostPage = props => {
+  const { frontmatter, rawMarkdownBody } = props.data.markdownRemark
 
   return (
     <>
-      <SEO title={frontmatter.title} description={frontmatter.description} />
+      <SEO
+        title={frontmatter.title}
+        description={frontmatter.description}
+        image={frontmatter.image}
+        datePublished={frontmatter.date}
+        isBlogPost
+      />
       <Container className="markdown" variant="with-top-padding">
         <ReactMarkdown
           renderers={ChakraUIRenderer()}
@@ -26,7 +31,7 @@ const GeneralPage = ({ data }) => {
   )
 }
 
-GeneralPage.propTypes = {
+PostPage.propTypes = {
   data: PropTypes.shape({
     rawMarkdownBody: PropTypes.object,
     markdownRemark: PropTypes.shape({
@@ -35,16 +40,29 @@ GeneralPage.propTypes = {
   }),
 }
 
-export default GeneralPage
+export default PostPage
 
 export const query = graphql`
-  query GeneralPageTemplateQuery($id: String) {
+  query PostPageTemplateQuery($id: String) {
     markdownRemark(id: { eq: $id }) {
       id
       rawMarkdownBody
       frontmatter {
         title
         description
+        category
+        tags
+        date
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              width: 600
+              height: 350
+              placeholder: TRACED_SVG
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
       }
     }
   }

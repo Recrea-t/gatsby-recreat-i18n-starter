@@ -12,6 +12,9 @@ const styles = {
         margin: "0 !important",
       },
     },
+    "a.is-active": {
+      color: "dimGray.500",
+    },
   },
 }
 

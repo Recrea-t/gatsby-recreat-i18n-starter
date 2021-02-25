@@ -9,6 +9,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    `gatsby-transformer-json`,
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
@@ -44,6 +45,27 @@ module.exports = {
       options: {
         name: "uploads",
         path: `${__dirname}/static/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "translations",
+        path: `${__dirname}/data/translations`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "language-mapping",
+        path: `${__dirname}/data/language-mapping`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "menu",
+        path: `${__dirname}/data/menu`,
       },
     },
     {

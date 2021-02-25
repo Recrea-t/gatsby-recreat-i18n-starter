@@ -7,42 +7,33 @@ import "@fontsource/playfair-display"
 
 import React from "react"
 import useSiteMetadata from "./siteMetadata"
+import { useLocale } from "../hooks/locale"
 
 import { Flex } from "@chakra-ui/react"
 
 import Header from "./sections/Header"
 import Footer from "./sections/Footer"
-import SEO from "./SEO/seo"
 
-const TemplateWrapper = props => {
-  const { title, description, image, isBlogPost, datePublished } = props
-
+const TemplateWrapper = ({ children, pageContext: { locale } }) => {
   const { defaultTitle } = useSiteMetadata()
+  const { changeLocale } = useLocale()
+  changeLocale(locale)
 
   return (
-    <React.Fragment>
-      <SEO
-        title={title}
-        description={description}
-        image={image}
-        isBlogPost={isBlogPost}
-        datePublished={datePublished}
-      />
-      <Flex
-        direction="column"
-        align="center"
-        justify="space-between"
-        overflow="hidden"
-        minH="100vh"
-        pos="relative"
-      >
-        <Header />
-        <Flex as="main" pos="relative" w="full" pt="100px" direction="column">
-          {props.children}
-        </Flex>
-        <Footer title={defaultTitle} />
+    <Flex
+      direction="column"
+      align="center"
+      justify="space-between"
+      overflow="hidden"
+      minH="100vh"
+      pos="relative"
+    >
+      <Header />
+      <Flex as="main" pos="relative" w="full" pt="100px" direction="column">
+        {children}
       </Flex>
-    </React.Fragment>
+      <Footer title={defaultTitle} />
+    </Flex>
   )
 }
 

@@ -23,17 +23,17 @@
   "social": {
     "instagram": {
       "username": "Recreat_Disseny_Comunicacio",
-      "title": "Segueix-nos a Instagram",
+      "title": "Instagram",
       "baseUrl": "https://www.instagram.com/"
     },
     "facebook": {
       "username": "RecreatDissenyComunicacio",
-      "title": "Segueix-nos a Facebook",
+      "title": "Facebook",
       "baseUrl": "https://www.facebook.com/"
     },
     "linkedin": {
       "username": "marta-bruna-b5847733",
-      "title": "Segueix-nos a Twitter",
+      "title": "Twitter",
       "baseUrl": "https://www.linkedin.com/in/"
     }
   }

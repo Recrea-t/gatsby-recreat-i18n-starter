@@ -1,11 +1,13 @@
 import React from "react"
-import { Link as GatsbyLink } from "gatsby"
+import useTranslations from "../useTranslations"
 
 import { Flex, Box, Container, Text } from "@chakra-ui/react"
 import { MotionButton } from "../../theme/utils"
+import LocalizedLink from "../ui/LocalizedLink"
 
 const Hero = props => {
   const { frontmatter } = props.data.markdownRemark
+  const { moreButton } = useTranslations()
   return (
     <Box w="full" mb={8} py={4} bg="mangoTango.500" color="white">
       <Container>
@@ -18,7 +20,7 @@ const Hero = props => {
             “{frontmatter.description}”
           </Text>
           <MotionButton
-            as={GatsbyLink}
+            as={LocalizedLink}
             to="/qui-som"
             title="Qui som?"
             variant="custom-link"
@@ -26,7 +28,7 @@ const Hero = props => {
             alignSelf="flex-end"
             whileTap={{ scale: 0.95 }}
           >
-            Saber-ne més
+            {moreButton}
           </MotionButton>
         </Flex>
       </Container>

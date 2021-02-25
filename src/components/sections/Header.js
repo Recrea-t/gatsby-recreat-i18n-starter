@@ -1,31 +1,22 @@
 import React from "react"
+import useMenu from "../useMenu"
+import useTranslations from "../useTranslations"
+
 import { Link as GatsbyLink } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { Flex, Link, useBreakpointValue } from "@chakra-ui/react"
+import { Flex, useBreakpointValue } from "@chakra-ui/react"
 
 import NavLink from "../ui/NavLink"
 import ToggleMenu from "../ui/ToggleMenu"
+import Languages from "../ui/Languages"
+import LocalizedLink from "../ui/LocalizedLink"
 
 const Header = () => {
+  const menuItems = useMenu()
+  const { home } = useTranslations()
   const isSmallDevice = useBreakpointValue({ base: true, md: false })
   const [show, setShow] = React.useState(false)
   const toggleMenu = () => setShow(!show)
-
-  const MenuItems = ({ onClick }) => {
-    return (
-      <>
-        <NavLink to="/qui-som/" onClick={onClick}>
-          Qui Som
-        </NavLink>
-        <NavLink to="/serveis/" onClick={onClick}>
-          Serveis
-        </NavLink>
-        <NavLink to="/#contacte" onClick={onClick} isLast>
-          Contacte
-        </NavLink>
-      </>
-    )
-  }
 
   return (
     <Flex
@@ -47,20 +38,26 @@ const Header = () => {
       borderBottomColor="mangoTango.500"
       wrap="wrap"
     >
-      <Link to="/" title="Inici" as={GatsbyLink}>
+      <LocalizedLink to="/" title={home} as={GatsbyLink}>
         <StaticImage
           src="../../images/LogoRecreat.png"
-          alt="Logotip Recrea't"
+          alt="Recrea't"
           loading="eager"
           layout="fixed"
           placeholder="tracedSVG"
           width={200}
         />
-      </Link>
+      </LocalizedLink>
+
+      <Languages />
 
       {isSmallDevice ? (
         <ToggleMenu show={show} toggleMenu={toggleMenu}>
-          <MenuItems onClick={toggleMenu} />
+          {menuItems.map((menu, index) => (
+            <NavLink key={index} to={menu.link} onClick={toggleMenu}>
+              {menu.name}
+            </NavLink>
+          ))}
         </ToggleMenu>
       ) : (
         <Flex
@@ -68,7 +65,11 @@ const Header = () => {
           direction="row"
           justify={{ md: "space-between", lg: "flex-end" }}
         >
-          <MenuItems />
+          {menuItems.map((menu, index) => (
+            <NavLink key={index} to={menu.link}>
+              {menu.name}
+            </NavLink>
+          ))}
         </Flex>
       )}
     </Flex>

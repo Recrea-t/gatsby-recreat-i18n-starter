@@ -47,7 +47,7 @@ export const motionRevealConfig = (controls, direction = "right") => {
   return motionConfig(controls, "hidden", revealVariants(direction))
 }
 
-const MotionBox = motion.custom(
+const MotionBox = motion(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
@@ -57,7 +57,7 @@ const MotionBox = motion.custom(
   })
 )
 
-export const MotionVStack = motion.custom(
+export const MotionVStack = motion(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
@@ -67,7 +67,7 @@ export const MotionVStack = motion.custom(
   })
 )
 
-export const MotionGridItem = motion.custom(
+export const MotionGridItem = motion(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
@@ -77,7 +77,7 @@ export const MotionGridItem = motion.custom(
   })
 )
 
-export const MotionButton = motion.custom(
+export const MotionButton = motion(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
@@ -87,7 +87,7 @@ export const MotionButton = motion.custom(
   })
 )
 
-export const MotionImage = motion.custom(
+export const MotionImage = motion(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
@@ -97,7 +97,7 @@ export const MotionImage = motion.custom(
   })
 )
 
-export const MotionText = motion.custom(
+export const MotionText = motion(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
@@ -107,7 +107,7 @@ export const MotionText = motion.custom(
   })
 )
 
-export const MotionLink = motion.custom(
+export const MotionLink = motion(
   forwardRef((props, ref) => {
     const chakraProps = Object.fromEntries(
       // do not pass framer props to DOM element
