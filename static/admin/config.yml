@@ -16,7 +16,7 @@ collections:
     #Posts (English)
     - name: 'posts-en' # Used in routes, e.g., /admin/collections/blog
       label: 'Posts (English)' # Used in the UI
-      folder: 'pages/blog' # The path to the folder where the documents are stored
+      folder: 'src/pages/blog' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
       extension: 'en.md'
@@ -53,7 +53,7 @@ collections:
     #Posts (Catalan)
     - name: 'posts-pt' # Used in routes, e.g., /admin/collections/blog
       label: 'Posts (Català)' # Used in the UI
-      folder: 'pages/blog' # The path to the folder where the documents are stored
+      folder: 'src/pages/blog' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{year}}-{{month}}-{{day}}-{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
       extension: 'ca.md'
@@ -90,7 +90,7 @@ collections:
     #Pages (English)
     - name: 'pages-en' # Used in routes, e.g., /admin/collections/blog
       label: 'Pages (English)' # Used in the UI
-      folder: 'pages' # The path to the folder where the documents are stored
+      folder: 'src/pages' # The path to the folder where the documents are stored
       slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
       extension: 'en.md'
       format: frontmatter
@@ -107,7 +107,7 @@ collections:
     #Pages (Catalan)
     - name: 'pages-ca' # Used in routes, e.g., /admin/collections/blog
       label: 'Pàgines (Català)' # Used in the UI
-      folder: 'pages' # The path to the folder where the documents are stored
+      folder: 'src/pages' # The path to the folder where the documents are stored
       create: true # Allow users to create new documents in this collection
       slug: '{{slug}}' # Filename template, e.g., YYYY-MM-DD-title.md
       extension: 'ca.md'
