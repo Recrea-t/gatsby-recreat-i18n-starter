@@ -1,12 +1,14 @@
 {
-  "name": "gatsby-recreat-starter",
+  "name": "gatsby-recreat-i18n-starter",
   "version": "1.0.0",
   "private": false,
-  "description": "Recrea't Gatsby starter",
+  "description": "Recrea't i18n Gatsby starter",
   "author": "Recrea-t",
   "keywords": [
     "gatsby",
-    "chakra-ui"
+    "chakra-ui",
+    "i18n",
+    "netlify-cms"
   ],
   "license": "MIT",
   "dependencies": {
