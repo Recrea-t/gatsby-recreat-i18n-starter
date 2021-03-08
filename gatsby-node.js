@@ -72,6 +72,7 @@ exports.createPages = ({ actions, graphql }) => {
           `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
+        matchPath: !isDefault && slug === "404" ? `/${locale}/*` : null,
         context: {
           id,
           locale,
