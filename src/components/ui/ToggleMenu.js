@@ -1,13 +1,37 @@
-import React from "react";
-import { Box, Flex, Collapse } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import React from "react"
+import { Box, Flex, Collapse } from "@chakra-ui/react"
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons"
 
-const ToggleMenu = (props) => {
-  const { show, toggleMenu, children } = props;
+//import { MenuButton } from "./MenuButton"
+//import { EASINGS } from "../../theme/utils"
+
+const ToggleMenu = props => {
+  const { show, toggleMenu, children } = props
 
   return (
     <>
-      <Box display="block" onClick={toggleMenu} aria-label="Toggle navigation">
+      {/*
+			<Box
+        display={{ base: "block", md: "none" }}
+        aria-label="Toggle navigation"
+        as={MenuButton}
+        width={31}
+        strokeWidth={3}
+        color="nightRider.500"
+        transition={{
+          ease: EASINGS.easeInOutCubic,
+          duration: 0.2,
+        }}
+        isOpen={show}
+        onClick={toggleMenu}
+      />
+			*/}
+
+      <Box
+        display={{ base: "block", md: "none" }}
+        onClick={toggleMenu}
+        aria-label="Toggle navigation"
+      >
         {show ? <CloseIcon w={8} h={8} /> : <HamburgerIcon w={8} h={8} />}
       </Box>
 
@@ -19,7 +43,7 @@ const ToggleMenu = (props) => {
         </Collapse>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default ToggleMenu;
+export default ToggleMenu

@@ -4,7 +4,7 @@ import useTranslations from "../useTranslations"
 
 import { Link as GatsbyLink } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { Flex, useBreakpointValue } from "@chakra-ui/react"
+import { Flex } from "@chakra-ui/react"
 
 import NavLink from "../ui/NavLink"
 import ToggleMenu from "../ui/ToggleMenu"
@@ -14,7 +14,6 @@ import LocalizedLink from "../ui/LocalizedLink"
 const Header = () => {
   const menuItems = useMenu()
   const { home } = useTranslations()
-  const isSmallDevice = useBreakpointValue({ base: true, md: false })
   const [show, setShow] = React.useState(false)
   const toggleMenu = () => setShow(!show)
 
@@ -51,27 +50,26 @@ const Header = () => {
 
       <Languages />
 
-      {isSmallDevice ? (
-        <ToggleMenu show={show} toggleMenu={toggleMenu}>
-          {menuItems.map((menu, index) => (
-            <NavLink key={index} to={menu.link} onClick={toggleMenu}>
-              {menu.name}
-            </NavLink>
-          ))}
-        </ToggleMenu>
-      ) : (
-        <Flex
-          align="center"
-          direction="row"
-          justify={{ md: "space-between", lg: "flex-end" }}
-        >
-          {menuItems.map((menu, index) => (
-            <NavLink key={index} to={menu.link}>
-              {menu.name}
-            </NavLink>
-          ))}
-        </Flex>
-      )}
+      <ToggleMenu show={show} toggleMenu={toggleMenu}>
+        {menuItems.map((menu, index) => (
+          <NavLink key={index} to={menu.link} onClick={toggleMenu}>
+            {menu.name}
+          </NavLink>
+        ))}
+      </ToggleMenu>
+
+      <Flex
+        display={{ base: "none", md: "inherit" }}
+        align="center"
+        direction="row"
+        justify={{ md: "space-between", lg: "flex-end" }}
+      >
+        {menuItems.map((menu, index) => (
+          <NavLink key={index} to={menu.link}>
+            {menu.name}
+          </NavLink>
+        ))}
+      </Flex>
     </Flex>
   )
 }
