@@ -5,7 +5,13 @@ console.log(config)
 module.exports = {
   siteMetadata: config,
   plugins: [
-    "@chakra-ui/gatsby-plugin",
+    {
+      resolve: "@chakra-ui/gatsby-plugin",
+      options: {
+        isUsingColorMode: false,
+      },
+    },
+    //"gatsby-plugin-preact",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -19,6 +25,8 @@ module.exports = {
       options: {
         name: `Recrea't`,
         short_name: `Recrea't`,
+        description: `Disseny gràfic i comunicació`,
+        lang: `ca`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#E8864B`,
@@ -27,6 +35,21 @@ module.exports = {
         icon_options: {
           purpose: `any maskable`,
         },
+        localize: [
+          {
+            start_url: `/es/`,
+            lang: `es`,
+            name: `Recrea't`,
+            short_name: `Recrea't`,
+          },
+          {
+            start_url: `/en/`,
+            lang: `en`,
+            name: `Recrea't`,
+            short_name: `Recrea't`,
+            description: `Graphic Design and Communication`,
+          },
+        ],
         //cache_busting_mode: "none",
       },
     },
