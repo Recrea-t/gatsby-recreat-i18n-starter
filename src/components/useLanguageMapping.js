@@ -33,6 +33,10 @@ const query = graphql`
                 title
                 link
               }
+              es {
+                title
+                link
+              }
               en {
                 title
                 link

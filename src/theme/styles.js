@@ -2,7 +2,6 @@ const styles = {
   global: {
     html: {
       //scrollBehavior: "smooth",
-      //scrollMarginTop: "6rem",
     },
     body: {
       color: "dimGray.500",
@@ -12,8 +11,9 @@ const styles = {
         margin: "0 !important",
       },
     },
-    "a.is-active": {
-      color: "dimGray.500",
+    ".is-active": {
+      color: "#63656A !important",
+      textDecoration: "none",
     },
   },
 }

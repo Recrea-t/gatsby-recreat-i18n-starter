@@ -17,7 +17,7 @@ const LocalizedLink = React.forwardRef(({ to, title, ...props }, ref) => {
     const associatedUrls = languageMapping.find(item => {
       let hasUrl = false
 
-      Object.entries(item).forEach(([key, value]) => {
+      Object.entries(item).forEach(([_, value]) => {
         if (value.link === to) return (hasUrl = true)
       })
 

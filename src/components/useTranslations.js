@@ -44,8 +44,24 @@ const query = graphql`
 
             moreButton
 
+            callUs
+            writeUs
+
+            name
+            email
+            message
+            conditionsPart1
+            conditionsPart2
+
+            followUs
             legalNote
             privacyPolicy
+
+            submit
+            submitting
+            errorConditions
+            messageSuccessfulTitle
+            messageSuccessfulDescription
           }
         }
       }

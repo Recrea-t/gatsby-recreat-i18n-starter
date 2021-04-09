@@ -11,6 +11,15 @@ module.exports = {
     defaultTitle: "Recrea't",
     defaultDescription: "Disseny gràfic i comunicació",
   },
+  es: {
+    path: `es`,
+    locale: `es-ES`,
+    dateFormat: `DD/MM/YYYY`,
+    siteLanguage: `es`,
+    ogLanguage: `es_ES`,
+    defaultTitle: "Recrea't",
+    defaultDescription: "Diseño gráfico y comunicación",
+  },
   en: {
     path: `en`,
     locale: `en-US`,

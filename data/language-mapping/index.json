@@ -5,6 +5,10 @@
         "title": "Inici",
         "link": "/"
       },
+      "es": {
+        "title": "Inicio",
+        "link": "/"
+      },
       "en": {
         "title": "Home",
         "link": "/"
@@ -12,6 +16,10 @@
     },
     {
       "ca": {
+        "title": "404",
+        "link": "/404"
+      },
+      "es": {
         "title": "404",
         "link": "/404"
       },
@@ -25,6 +33,10 @@
         "title": "Qui som?",
         "link": "/qui-som"
       },
+      "es": {
+        "title": "Quiénes somos?",
+        "link": "/quienes-somos"
+      },
       "en": {
         "title": "About us",
         "link": "/about"
@@ -32,6 +44,10 @@
     },
     {
       "ca": {
+        "title": "Blog",
+        "link": "/blog"
+      },
+      "es": {
         "title": "Blog",
         "link": "/blog"
       },
@@ -45,6 +61,10 @@
         "title": "Contacta'ns",
         "link": "/contacte"
       },
+      "es": {
+        "title": "Contacta con nosotros",
+        "link": "/contacto"
+      },
       "en": {
         "title": "Contact us",
         "link": "/contact"
@@ -55,6 +75,10 @@
         "title": "Avís legal",
         "link": "/avis-legal"
       },
+      "es": {
+        "title": "Aviso legal",
+        "link": "/aviso-legal"
+      },
       "en": {
         "title": "Legal Note",
         "link": "/legal-note"
@@ -64,6 +88,10 @@
       "ca": {
         "title": "Protecció de dades personals",
         "link": "/proteccio-de-dades"
+      },
+      "es": {
+        "title": "Protección de datos personales",
+        "link": "/proteccion-de-datos"
       },
       "en": {
         "title": "Privacy Policy",

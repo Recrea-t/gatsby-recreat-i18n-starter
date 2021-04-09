@@ -38,8 +38,8 @@ const SEO = ({ title, description, image, isBlogPost, datePublished }) => {
   const associatedUrls = languageMapping.find(item => {
     let hasUrl = false
 
-    Object.entries(item).forEach(([key, value]) => {
-      if (value.link === url) return (hasUrl = true)
+    Object.entries(item).forEach(([_, value]) => {
+      if (value && value.link === url) return (hasUrl = true)
     })
 
     return hasUrl

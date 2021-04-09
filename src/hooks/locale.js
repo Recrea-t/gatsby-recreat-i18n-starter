@@ -1,10 +1,33 @@
 import React, { createContext, useState, useContext } from "react"
 import PropTypes from "prop-types"
 
+import browserLang from "browser-lang"
+import locales from "../../data/i18n"
+
 const LocaleContext = createContext("")
 
+const languages = Object.keys(locales)
+const key = "gastby-language"
+const defaultLang = "ca"
+
 const LocaleProvider = ({ children }) => {
-  const [locale, setLocale] = useState("ca")
+  const [locale, setLocale] = useState(() => {
+    let detected = window.localStorage.getItem(key)
+
+    if (!detected) {
+      detected = browserLang({
+        languages,
+        fallback: defaultLang,
+      })
+
+      if (!languages.includes(detected)) {
+        detected = defaultLang
+      }
+      window.localStorage.setItem(key, detected)
+    }
+
+    return detected
+  })
 
   function changeLocale(lang) {
     setLocale(lang)
@@ -33,4 +56,3 @@ const useLocale = () => {
 }
 
 export { LocaleProvider, useLocale }
-

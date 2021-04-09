@@ -1,7 +1,6 @@
 import React from "react"
 import { Link as GatsbyLink, navigate } from "gatsby"
 
-import browserLang from "browser-lang"
 import locales from "../../../data/i18n"
 import { useLocale } from "../../hooks/locale"
 import useLanguageMapping from "../useLanguageMapping"
@@ -14,9 +13,6 @@ const Languages = () => {
   const { locale } = useLocale()
   const languageMapping = useLanguageMapping()
 
-  const defaultLang = "ca"
-  const languages = Object.keys(locales)
-
   function handleClickLanguage(lang, options = { replace: true }) {
     if (locale === lang) return
 
@@ -24,7 +20,7 @@ const Languages = () => {
 
     const url = window.location.pathname.split("/").pop()
 
-    if (!url)
+    if (!url || url === lang)
       return locales[lang].default
         ? navigate(`/`, options)
         : navigate(`/${lang}`, options)
@@ -32,8 +28,8 @@ const Languages = () => {
     const associatedUrls = languageMapping.find(item => {
       let hasUrl = false
 
-      Object.entries(item).forEach(([key, value]) => {
-        if (value.link.split("/").pop() === url) return (hasUrl = true)
+      Object.entries(item).forEach(([_, value]) => {
+        if (value && value.link.split("/").pop() === url) return (hasUrl = true)
       })
 
       return hasUrl
@@ -50,16 +46,7 @@ const Languages = () => {
   }
 
   if (typeof window !== "undefined") {
-    let detected =
-      window.localStorage.getItem("gatsby-language") ||
-      browserLang({
-        languages,
-        fallback: defaultLang,
-      })
-
-    if (!languages.includes(detected)) {
-      detected = defaultLang
-    }
+    let detected = window.localStorage.getItem("gatsby-language") || locale
 
     if (locale !== detected) {
       handleClickLanguage(detected, { replace: true })
@@ -79,7 +66,20 @@ const Languages = () => {
         }}
         className={locale === "ca" ? "is-active" : ""}
       >
-        CA
+        CAT
+      </Link>
+      <Link
+        to="/"
+        title="Español"
+        as={GatsbyLink}
+        variant="nav-link"
+        onClick={e => {
+          e.preventDefault()
+          handleClickLanguage("es")
+        }}
+        className={locale === "es" ? "is-active" : ""}
+      >
+        ES
       </Link>
       <Link
         to="/"
@@ -92,7 +92,7 @@ const Languages = () => {
         }}
         className={locale === "en" ? "is-active" : ""}
       >
-        EN
+        ENG
       </Link>
     </HStack>
   )
