@@ -18,7 +18,7 @@ const LocalizedLink = React.forwardRef(({ to, title, ...props }, ref) => {
       let hasUrl = false
 
       Object.entries(item).forEach(([_, value]) => {
-        if (value.link === to) return (hasUrl = true)
+        if (value && value.link === to) return (hasUrl = true)
       })
 
       return hasUrl

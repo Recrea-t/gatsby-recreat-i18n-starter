@@ -12,20 +12,23 @@ const defaultLang = "ca"
 
 const LocaleProvider = ({ children }) => {
   const [locale, setLocale] = useState(() => {
-    let detected = window.localStorage.getItem(key)
+    let detected = defaultLang
 
-    if (!detected) {
-      detected = browserLang({
-        languages,
-        fallback: defaultLang,
-      })
+    if (typeof window !== "undefined") {
+      detected = window.localStorage.getItem(key)
 
-      if (!languages.includes(detected)) {
-        detected = defaultLang
+      if (!detected) {
+        detected = browserLang({
+          languages,
+          fallback: defaultLang,
+        })
+
+        if (!languages.includes(detected)) {
+          detected = defaultLang
+        }
+        window.localStorage.setItem(key, detected)
       }
-      window.localStorage.setItem(key, detected)
     }
-
     return detected
   })
 
