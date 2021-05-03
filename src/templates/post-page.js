@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { Container } from "@chakra-ui/react"
 
 import ReactMarkdown from "react-markdown"
-import ChakraUIRenderer from "chakra-ui-markdown-renderer"
+import ChakraUIRenderer from "../utils/ChakraUIRenderer"
 
 import SEO from "../components/SEO/seo"
 
@@ -22,8 +22,8 @@ const PostPage = props => {
       />
       <Container className="markdown" variant="with-top-padding">
         <ReactMarkdown
-          renderers={ChakraUIRenderer()}
-          source={rawMarkdownBody}
+          components={ChakraUIRenderer()}
+          children={rawMarkdownBody}
           escapeHtml={false}
         />
       </Container>
